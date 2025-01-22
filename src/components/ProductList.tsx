@@ -133,8 +133,18 @@ export default function ProductList() {
                 alt={product.title}
                 className="w-full h-48 object-contain mb-4"
               />
-              <h1 className="text-lg font-bold mb-2">{product.title}</h1>
-              <p className="text-gray-600">${product.price.toFixed(2)}</p>
+              <h1
+                className="text-lg font-bold mb-2"
+                data-testid={`product-${product.title}`}
+              >
+                {product.title}
+              </h1>
+              <p
+                className="text-gray-600"
+                data-testid={`product-${product.price.toFixed(2)}`}
+              >
+                ${product.price.toFixed(2)}
+              </p>
             </div>
             <div className="flex items-center">
               {cartItems[product.id] ? (
