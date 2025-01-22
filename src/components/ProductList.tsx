@@ -123,9 +123,9 @@ export default function ProductList() {
 
       <div className="max-w-screen-lg mx-auto mt-5 pr-[50px] pl-[50px] grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {productList.map((product) => (
-          <div key={product.id} className="border p-4 rounded shadow">
+          <div key={product.id} className="border p-4 rounded shadow relative">
             <div
-              className="cursor-pointer"
+              className="cursor-pointer mb-[50px]"
               onClick={() => handleChange(product.id)}
             >
               <img
@@ -138,24 +138,24 @@ export default function ProductList() {
             </div>
             <div className="flex items-center">
               {cartItems[product.id] ? (
-                <div className="flex">
+                <div className="flex items-center absolute bottom-0 mb-4 ml-4 left-0">
                   <button
                     onClick={() => handleRemoveFromCart(product.id)}
-                    className="bg-red-500 text-white p-2"
+                    className="bg-red-500 text-white p-2 "
                   >
                     -
                   </button>
                   <p className="mx-2">{cartItems[product.id].quantity}</p>
                   <button
                     onClick={() => handleAddToCart(product)}
-                    className="bg-red-500 text-white p-2"
+                    className="bg-red-500 text-white p-2 "
                   >
                     +
                   </button>
                 </div>
               ) : (
                 <button
-                  className="bg-red-500 text-white p-2"
+                  className="bg-red-500 text-white p-2 absolute bottom-0 mb-4 ml-4 left-0"
                   onClick={() => handleAddToCart(product)}
                 >
                   Add to Cart
